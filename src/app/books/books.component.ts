@@ -14,7 +14,7 @@ export class BooksComponent implements OnInit {
 
   constructor(private booksService: BooksService) { }
 
-  card: Book[] = [];
+  cart: Book[] = [];
 
 
 
@@ -22,10 +22,6 @@ export class BooksComponent implements OnInit {
 
   ngOnInit(): void {
     this.books = this.booksService.getBooks();
-  }
-
-  addToCard(event: Book) {
-    console.log(event);
   }
 
 }

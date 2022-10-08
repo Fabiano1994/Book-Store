@@ -2,6 +2,7 @@
 <li>
     {{ book.name }} by {{ book.author }} <p>{{ book.amount | currency:'EUR' }}</p>
     <img [src]="[book.image]" [alt]="[book.name]" width="100">
-    <br><button (click)="addToCart()">Add to Card</button>
+    <br><button *ngIf="!isInCart" (click)="addToCart()">Add to Cart</button>
+    <br><button *ngIf="isInCart" (click)="removeFromCart()">Remove from Cart</button>
 </li>
 </ul>

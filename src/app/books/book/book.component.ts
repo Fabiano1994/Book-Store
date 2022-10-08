@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CartService } from 'src/app/cart/cart.service';
 import { Book } from '../../types/books';
 
 
@@ -10,17 +11,21 @@ import { Book } from '../../types/books';
 export class BookComponent implements OnInit {
 
   @Input()   book: Book = {} as Book;
-  @Output() bookEmitter = new EventEmitter<Book>();
+  isInCart: boolean = false;
 
-  
-
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
   }
 
   addToCart() {
-    this.bookEmitter.emit(this.book);
+    this.isInCart = true;
+    this.cartService.add(this.book);
+  }
+
+  removeFromCart() {
+    this.isInCart = true;
+    this.cartService.remove(this.book);
   }
 
 }
