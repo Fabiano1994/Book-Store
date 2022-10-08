@@ -1,0 +1,6 @@
+
+<ul *ngIf="isShowing">
+    <ng-container *ngFor="let book of books">
+        <app-book (bookEmitter)="addToCard($event)" [book]="book"></app-book>
+    </ng-container>
+</ul>
