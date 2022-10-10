@@ -24,7 +24,7 @@ export class BookComponent implements OnInit {
   }
 
   removeFromCart() {
-    this.isInCart = true;
+    this.isInCart = false;
     this.cartService.remove(this.book);
   }
 

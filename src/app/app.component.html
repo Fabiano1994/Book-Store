@@ -1,2 +1,13 @@
-<app-books></app-books>
-<app-cart></app-cart>
+<nav class="is-flex is-justify-content-space-between p-4 has-background-primary">
+    <div>
+        <a routerLink="">Book Shop</a>
+    </div>
+    <div >
+        <a class="mx-2" routerLink="cart"> My Cart</a>
+        <a class="mx-2"routerLink="login"> Login</a>
+        <a class="mx-2"routerLink="register"> Register</a>
+    </div>
+</nav>
+<div class="p-2">
+    <router-outlet></router-outlet>
+</div>
