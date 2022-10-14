@@ -3,14 +3,30 @@
         <h1 class="has-text-weight-bold has-text-centered">Register</h1>
         <div class="my-5">
             <label for="email">Email</label>
-            <input type="email" class="p-2 input  is-primary">
+            <input type="email" class="p-2 input  is-primary"
+            [(ngModel)]="form.email" name="email" #email="ngModel" required>
+        </div>
+        <div [hidden]="email.valid" class="p-4 has-text-danger has-text-centered">
+            Email field must be valid
         </div>
         <div class="my-5">
             <label for="password">Password</label>
-            <input type="password" class="p-2 input is-primary ">
+            <input type="password" class="p-2 input is-primary" 
+            [(ngModel)]="form.password" name="password" #password="ngModel" required>
+        </div>
+        <div [hidden]="password.valid" class="p-4 has-text-danger has-text-centered">
+            Password field must be valid
         </div>
         <div class="my-5">
-            <input type="submit" class="p-2 button input  is-primary ">
+            <label for="password">Confirm password</label>
+            <input type="password" class="p-2 input is-primary"
+            [(ngModel)]="form.password" name="password" #confirmPassword="ngModel" required>
+        </div>
+        <div [hidden]="confirmPassword.valid" class="p-4 has-text-danger has-text-centered">
+            Confrim password
+        </div>
+        <div class="my-5">
+            <input type="submit" placeholder="submit" class="p-2 button input  is-primary ">
         </div>
     </form>
 </div>

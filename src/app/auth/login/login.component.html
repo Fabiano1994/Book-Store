@@ -1,13 +1,14 @@
 <div class="is-flex is-justify-content-center full-height">
-    <form class="m-auto">
+    <form (ngSubmit)="submit()" class="m-auto">
         <h1 class="has-text-weight-bold has-text-centered">Login</h1>
         <div class="my-5">
             <label for="email">Email</label>
-            <input type="email" class="p-2 input  is-primary">
+            <input type="email" class="p-2 input  is-primary" [(ngModel)]="form.email" name="email">
         </div>
         <div class="my-5">
             <label for="password">Password</label>
-            <input type="password" class="p-2 input is-primary ">
+            <input type="password" class="p-2 input is-primary "
+            [(ngModel)]="form.password" name="password">
         </div>
         <div class="my-5">
             <input type="submit" class="p-2 button input  is-primary ">
