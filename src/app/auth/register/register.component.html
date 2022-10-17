@@ -1,12 +1,12 @@
 <div class="is-flex is-justify-content-center full-height">
-    <form class="m-auto">
+    <form (ngSubmit)="submit()" #myForm="ngForm" class="m-auto">
         <h1 class="has-text-weight-bold has-text-centered">Register</h1>
         <div class="my-5">
             <label for="email">Email</label>
             <input type="email" class="p-2 input  is-primary"
             [(ngModel)]="form.email" name="email" #email="ngModel" required>
         </div>
-        <div [hidden]="email.valid" class="p-4 has-text-danger has-text-centered">
+        <div *ngIf="email.invalid && (email.dirty && email.touched)" class="p-4 has-text-danger has-text-centered">
             Email field must be valid
         </div>
         <div class="my-5">
@@ -14,19 +14,29 @@
             <input type="password" class="p-2 input is-primary" 
             [(ngModel)]="form.password" name="password" #password="ngModel" required>
         </div>
-        <div [hidden]="password.valid" class="p-4 has-text-danger has-text-centered">
+        <div *ngIf="password.invalid && (password.dirty && password.touched)" class="p-4 has-text-danger has-text-centered">
             Password field must be valid
         </div>
         <div class="my-5">
-            <label for="password">Confirm password</label>
+            <label for="confirmPassword">Confirm password</label>
             <input type="password" class="p-2 input is-primary"
-            [(ngModel)]="form.password" name="password" #confirmPassword="ngModel" required>
+            [(ngModel)]="form.confirmPassword" name="confirmPassword" #confirmPassword="ngModel" required>
         </div>
-        <div [hidden]="confirmPassword.valid" class="p-4 has-text-danger has-text-centered">
-            Confrim password
+        <div *ngIf="confirmPassword.invalid && (confirmPassword.dirty && confirmPassword.touched)" class="p-4 has-text-danger has-text-centered">
+            Confirm password
         </div>
         <div class="my-5">
-            <input type="submit" placeholder="submit" class="p-2 button input  is-primary ">
+            <div class="my-5">
+                <button type="submit" class="p-2 button input  is-primary">
+                    <ng-container *ngIf="isLoading">
+                        Loading...
+                    </ng-container>
+                    <ng-container *ngIf="!isLoading">
+                        Submit
+                    </ng-container>
+                </button>
+    
+            </div>
         </div>
     </form>
 </div>

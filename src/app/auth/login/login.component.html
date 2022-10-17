@@ -7,11 +7,18 @@
         </div>
         <div class="my-5">
             <label for="password">Password</label>
-            <input type="password" class="p-2 input is-primary "
-            [(ngModel)]="form.password" name="password">
+            <input type="password" class="p-2 input is-primary " [(ngModel)]="form.password" name="password">
         </div>
         <div class="my-5">
-            <input type="submit" class="p-2 button input  is-primary ">
+            <button type="submit" class="p-2 button input  is-primary">
+                <ng-container *ngIf="isLoading()">
+                    Loading...
+                </ng-container>
+                <ng-container *ngIf="!isLoading()">
+                    Submit
+                </ng-container>
+            </button>
+
         </div>
     </form>
 </div>
