@@ -28,10 +28,10 @@
         <div class="my-5">
             <div class="my-5">
                 <button type="submit" class="p-2 button input  is-primary">
-                    <ng-container *ngIf="isLoading">
+                    <ng-container *ngIf="isLoading()">
                         Loading...
                     </ng-container>
-                    <ng-container *ngIf="!isLoading">
+                    <ng-container *ngIf="!isLoading()">
                         Submit
                     </ng-container>
                 </button>
